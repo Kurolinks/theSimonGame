@@ -6,7 +6,10 @@ var started = false;
 
 
 // Key press to start game
-$("body").keypress(function(){nextSequence()});
+$("body").keypress(function(){
+    started = true;
+    nextSequence()
+});
 
 $(".btn").click(function() {
     var userChosenColour = $(this).attr("id");
@@ -58,21 +61,17 @@ function animatePress(currentColour) {
 
 function checkAnswer(currentLevel) {
     // Check if the user answer is correct or wrong
-    console.log(userClickedPattern);
-    console.log(gamePattern);
     if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
-        console.log("Success");
 
         // if the most recent answer is right, check that the player has finished their sequence
-        if (userClickedPattern.length === gamePattern.length) {gam
+        if (userClickedPattern.length === gamePattern.length) {
             setTimeout(function () {
                 nextSequence();
             }, 1000);
         }
     }
     else {
-        var audio = new Audio("sounds/wrong.mp3");
-        audio.play();
+        playSound("wrong");
         $("body").addClass("game-over");
         setTimeout(() => {
             $("body").removeClass('game-over');
