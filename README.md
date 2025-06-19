@@ -11,7 +11,7 @@ This challenge will test skills and knowledge in JavaScript and jQuery.
 
 ---
 
-Key Takeaways
+### Key Takeaways
 1. he challenge involves building a game modeled after Simon.
 2. The game starts by pressing any key, showing a tile to click.
 3. Patterns increase in complexity as levels progress.
